@@ -4,6 +4,9 @@
   "username": "postgres",
   "password": "postgres",
   "database": "nasa-appdb",
+  "entities": [
+    "./src/modules/**/entities/*ts"
+  ],
   "migrations": [
     "./src/typeorm/migrations/*.ts"
   ],

@@ -1,10 +1,27 @@
-import express from 'express';
+import 'reflect-metadata';
+
+import express, { NextFunction, Request, Response } from 'express';
+import routes from './index.routes';
+import './container'
 import "./typeorm" 
 
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.json({ message: "Hello world"})
+app.use(express.json());
+
+app.use(routes)
+
+app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
+  
+  console.log(err);
+
+  return response.status(500).json({
+    status: 'error',
+    message: 'Internal server error',
+  });
+
 })
 
-app.listen(3333);
+app.listen(3333, () => {
+  console.log('Server started')
+});
