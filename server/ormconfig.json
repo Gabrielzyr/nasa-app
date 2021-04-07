@@ -1,0 +1,13 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "username": "postgres",
+  "password": "postgres",
+  "database": "nasa-appdb",
+  "migrations": [
+    "./src/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/typeorm/migrations"
+  }
+}
