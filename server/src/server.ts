@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import cors from 'cors';
 
 import express, { NextFunction, Request, Response } from 'express';
 import routes from './index.routes';
@@ -8,7 +9,7 @@ import "./typeorm"
 const app = express();
 
 app.use(express.json());
-
+app.use(cors())
 app.use(routes)
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {

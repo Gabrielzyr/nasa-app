@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { Form } from '@unform/web';
 
-export const SignUp: React.FC = () => {
+import Input from '../../components/Input';
+import { FormHandles } from '@unform/core';
+
+interface IFormData {
+  email: string;
+  password: string;
+}
+
+const SignUp = () => {
+  const formRef = useRef<FormHandles>(null)
+
+  const handleFormSubmit = (data: IFormData) => {
+    console.log(data)
+  }
+
   return (
-    <div>
-      <h2>Cadastro</h2>
-    </div>
+    <Form ref={formRef} onSubmit={handleFormSubmit}>
+      <Input name="email" type="email" placeholder="Choose a username" />
+      <Input name="password" type="text" placeholder="Choose a username" />
+
+      <button type="submit">Cadastrar</button>
+    </Form>
   )
 }
+
+export default SignUp;
