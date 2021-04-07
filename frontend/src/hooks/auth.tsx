@@ -44,7 +44,15 @@ const AuthProvider: React.FC = ({children}) => {
       email,
       password,
     });
-    console.log(response);
+
+    const { user, token } = response.data;
+
+    localStorage.setItem('@NasaApp:user', JSON.stringify(user));
+    localStorage.setItem('@NasaApp:token', token);
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
+
+    setData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {

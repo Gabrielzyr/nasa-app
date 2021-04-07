@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
       name={name}
       ref={inputRef}
       type="text"
-      placeholder="Type your username"
+      placeholder=""
       {...rest}
     />
   )

@@ -44,8 +44,8 @@ const SignIn = () => {
 
   return (
     <Form ref={formRef} onSubmit={handleFormSubmit}>
-      <Input name="email" type="email" placeholder="Choose a username" />      
-      <Input name="password" type="text" placeholder="Choose a username" />
+      <Input name="email" type="email" placeholder="user@email.com" />
+      <Input name="password" type="text" />
 
       <button type="submit">Entrar</button>
     </Form>
