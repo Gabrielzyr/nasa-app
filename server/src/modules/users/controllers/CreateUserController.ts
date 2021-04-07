@@ -1,5 +1,4 @@
 import CreateUserService from "../services/CreateUserService";
-import { classToClass } from 'class-transformer';
 import { container } from "tsyringe";
 import { Request, Response } from "express";
 
