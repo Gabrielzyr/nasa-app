@@ -8,12 +8,12 @@ class AuthenticateUserController {
 
     const authenticateUserService = container.resolve(AuthenticateUserService);
 
-    const authenticateUser = authenticateUserService.execute({
+    const { user, token} = await authenticateUserService.execute({
       email,
       password
     })
 
-    return res.json(authenticateUser);
+    return res.json({user, token});
   }
 }
 

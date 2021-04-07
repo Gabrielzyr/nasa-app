@@ -21,14 +21,14 @@ class AuthenticateUserService {
     private userRepository: IUsersRepository,
   ) {};
 
-  async execute({ email, password }: IRequest): Promise<IResponse> {
+  public async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.userRepository.findByEmail(email)
 
     if (!user) {
       throw new Error('Email or password incorrect!');
     }
 
-    const checkPassword = compare(password, user.password);
+    const checkPassword = await compare(password, user.password);
 
     if (!checkPassword) {
       throw new Error('Email or password incorrect!');
