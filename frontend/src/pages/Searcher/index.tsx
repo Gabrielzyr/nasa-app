@@ -4,6 +4,7 @@ import {format} from 'date-fns';
 // import DayPicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import {checkDateParam, MaskDateInput} from '../../lib/utils';
+import { Link } from 'react-router-dom';
 interface INasaData {
   date: string;
   title: string;
@@ -15,7 +16,8 @@ interface INasaData {
 
 export const Searcher: React.FC = () => {
   const [apiParam, setApiParam] = useState('');
-  const [newDate , setNewDate] = useState('');
+  const [newDate, setNewDate] = useState('');
+  const [newImage, setNewImage] = useState<INasaData>();
 
   const handleImageSearch = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +34,8 @@ export const Searcher: React.FC = () => {
       if (!response) {
         throw new Error()
       };
-      
+      setNewImage(response.data)
+
     } catch (err) {
       alert('Cheque a data escolhida.')
       console.log(err)
@@ -69,7 +72,13 @@ export const Searcher: React.FC = () => {
         />
         <button type='submit'>Procurar</button>
       </form>
+      {newImage && (
+        <Link to={`/details/${newImage.date}`}>
+          <h1>{newImage?.title}</h1>
+          <img src={newImage?.url} alt={newImage?.title}/>
+        </Link>
 
+      )}
     </div>
   )
 

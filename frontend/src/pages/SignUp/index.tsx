@@ -6,6 +6,11 @@ import Input from '../../components/Input';
 import { FormHandles } from '@unform/core';
 import { api } from '../../services/api';
 import { useHistory } from 'react-router';
+import { IoLockClosedOutline, IoMailOutline } from 'react-icons/io5';
+import { Container } from './styles';
+import Button from '../../components/Button';
+import { Link } from 'react-router-dom';
+import { GiAtomicSlashes } from 'react-icons/gi';
 
 interface IFormData {
   email: string;
@@ -30,7 +35,7 @@ const SignUp = () => {
 
         await api.post('/users', data);
         
-        history.push('/dashboard')
+        history.push('/signIn')
 
       } catch (err) {
         alert('Ocorreu um erro durante o cadastro, tente novamente.')
@@ -39,12 +44,32 @@ const SignUp = () => {
   }, [history])
 
   return (
-    <Form ref={formRef} onSubmit={handleFormSubmit}>
-      <Input name="email" type="email" placeholder="user@email.com" />
-      <Input name="password" type="text" />
+    <Container>
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
+        <GiAtomicSlashes size={100} color='white'/>
+        <h1>Hello newcomer! Sign Up now and to start exploring all the pictures</h1>
 
-      <button type="submit">Cadastrar</button>
-    </Form>
+        <label>Login</label>
+        <Input 
+          name="email" 
+          type="email" 
+          icon={IoMailOutline}
+          placeholder="user@email.com" 
+        />
+
+        <label>Password</label>
+        <Input 
+          name="password" 
+          type="password"
+          icon={IoLockClosedOutline}
+        />
+
+        <Button type="submit">Sign Up</Button>
+          <span>Already a user?
+            <Link to='signIn'>Sign In</Link>
+          </span>
+      </Form>
+    </Container>
   )
 }
 

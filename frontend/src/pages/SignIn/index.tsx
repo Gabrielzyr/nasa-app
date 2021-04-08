@@ -1,9 +1,15 @@
 import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
 import * as yup from 'yup';
+import { IoMailOutline, IoLockClosedOutline } from 'react-icons/io5'
+import { GiAtomicSlashes } from 'react-icons/gi';
+
 import Input from '../../components/Input';
 import { FormHandles } from '@unform/core';
 import { useAuth } from '../../hooks/auth';
+import { Container } from './styles';
+import Button from '../../components/Button';
+import { Link } from 'react-router-dom';
 
 interface IFormData {
   email: string;
@@ -40,12 +46,32 @@ const SignIn = () => {
   );
 
   return (
-    <Form ref={formRef} onSubmit={handleFormSubmit}>
-      <Input name="email" type="email" placeholder="user@email.com" />
-      <Input name="password" type="text" />
+    <Container>
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
+        <GiAtomicSlashes size={100} color='white'/>
+        <h1>Hi! Sign In and start exploring through NASA's daily pictures</h1>
 
-      <button type="submit">Entrar</button>
-    </Form>
+        <label>Login</label>
+        <Input 
+          name="email" 
+          type="email" 
+          icon={IoMailOutline}
+          placeholder="user@email.com" 
+        />
+
+        <label>Password</label>
+        <Input 
+          name="password" 
+          type="password"
+          icon={IoLockClosedOutline}
+        />
+
+        <Button type="submit">Sign In</Button>
+          <span>Doesn't have an account?
+            <Link to='signUp'>Sign Up</Link>
+          </span>
+      </Form>
+    </Container>
   )
 }
 

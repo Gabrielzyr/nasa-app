@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --background: #f0f0f5;
+    --background: linear-gradient(20deg, rgba(2,0,36,1) 0%, rgba(65,9,121,1) 50%, rgba(162,0,255,1) 100%);;
   }
 
   * {
@@ -25,13 +25,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--background);
+    background: var(--background) no-repeat ;
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, textarea, button {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    outline: none;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
