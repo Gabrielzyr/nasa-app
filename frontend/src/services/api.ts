@@ -7,5 +7,5 @@ export const api = axios.create({
 
 
 export const nasaApi = axios.create({
-  baseURL: process.env.NASA_API_URL,
+  baseURL: `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_KEY}`,
 });
