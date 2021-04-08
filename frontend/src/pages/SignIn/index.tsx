@@ -21,7 +21,6 @@ const SignIn = () => {
           email: yup.string().email().required('Email obrigatório'),
           password: yup.string().required('Senha obrigatória')
         });
-        console.log("cheguei aqui",data)
         await schema.validate(data, {
           abortEarly: false,
         });
@@ -31,8 +30,6 @@ const SignIn = () => {
           password: data.password
         });
 
-        console.log('funcionou')
-        
       } catch (err) {
         alert('Ocorreu um erro durante o login, tente novamente.')
         console.log(err)
