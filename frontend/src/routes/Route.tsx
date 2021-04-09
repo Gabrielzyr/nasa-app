@@ -30,7 +30,7 @@ export const Route: React.FC<RouteProps> = ({
       ) : (
         <Redirect
           to={{
-            pathname: isPrivate ? '/' : 'searcher',
+            pathname: isPrivate ? '/signIn' : 'searcher',
             state: { from: location}
           }}
         />
