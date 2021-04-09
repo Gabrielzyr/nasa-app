@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom'
 import { Details } from '../pages/Details';
+import { Favorites } from '../pages/Favorites';
 
 import { Home } from '../pages/Home';
 import { Searcher } from '../pages/Searcher';
@@ -13,7 +14,8 @@ const Routes: React.FC = () => (
     <Route exact path="/" component={Home} />
     <Route exact path="/signIn" component={SignIn} />
     <Route exact path="/signUp" component={SignUp} />
-    <Route exact path="/searcher" component={Searcher} isPrivate/>
+    <Route exact path="/searcher" component={Searcher} isPrivate />
+    <Route exact path="/favorites" component={Favorites} isPrivate />
     <Route exact path="/details/:date+" component={Details} isPrivate/>
 
   </Switch>

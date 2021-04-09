@@ -6,6 +6,7 @@ interface IModalProps {
 
 export const Container = styled.div`
   display: flex;
+  background: rgba(46,27,87,1);
   align-items: center;
   justify-content: center;
   max-width: 460px;

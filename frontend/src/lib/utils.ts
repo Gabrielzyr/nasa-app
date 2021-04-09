@@ -40,3 +40,13 @@ export const MaskDateInput = (value: string) => {
 
   return value;
 }
+
+export const reverDate = (value: string) => {
+  let arr = value.replace(/\D/g, "").split('')
+
+  const year = arr.splice(0, 4).toString().replace(/\D/g, '')
+  const month = arr.splice(0, 2).toString().replace(/\D/g, '')
+  const day = arr.toString().replace(/\D/g, '')
+
+  return [day, month, year].join('/');
+}

@@ -1,18 +1,11 @@
 import { shade } from 'polished';
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
+  flex: 1;
   height: 100vh;
   max-width: 960px;
   margin: 0 auto;
-  padding: 40px 20px;
-
-    h1 {
-    font-size: 1.5rem;
-    color: #f5f5f5;
-  }
-
 `;
 
 export const Header = styled.header`
@@ -49,37 +42,35 @@ export const Header = styled.header`
   }
 `;
 
-export const Content = styled.main`
-  margin-top: 15px;
+export const FavoritesContainer = styled.div``;
 
-  div {
-    display: flex;
-    div {
-      display: flex;
-      flex-direction: column;
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        width: 100%;
-        min-width: 500px;
-        max-width: 560px;
-        margin-right: 12px;
-      
-      }
+export const FavoriteCard = styled.div`
+  display: flex;
+  border-radius: 6px;
+  width: 100%;
+  height: 200px;
+  background: rgba(46,27,87,0.7);
+
+
+  div > img {
+    height: 200px;
+    width: 200px;
+    max-width: 200px;
+  }
+
+  div:not(:first-child) {
+    margin-left: 20px;
+    margin-top: 20px;
+
+    h1 {
+      color: #f5f5f5;
+      font-size: 1.6rem;
+      line-height: 1.3;
     }
-
-    aside {
-      max-width: 400px;
-
-      p {
-        overflow-wrap: break-word;
-        font-size: 1rem;
-        color: #f5f5f5;
-        flex: 1;
-      }  
+    p {
+      margin-top: 30px;
+      color: #f5f5f5;
+      font-size: 1rem;
     }
-  
   }
 `;

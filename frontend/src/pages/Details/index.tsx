@@ -49,7 +49,7 @@ export const Details: React.FC = () => {
         </div>
         <Link to="/searcher">
           <FiChevronLeft size={16} />
-          Voltar
+          Back
         </Link>
       </Header>
       {image?.copyright && <h1>Author: {image.copyright}</h1>}
