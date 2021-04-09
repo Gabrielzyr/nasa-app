@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import { nasaApi } from '../../services/api';
+import { Container, Header, Content } from './styles';
+import { GiAtomicSlashes } from 'react-icons/gi';
+import { FiChevronLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 
 interface INasaParams {
   date: string;
@@ -34,15 +39,34 @@ export const Details: React.FC = () => {
 
   console.log(params.date)
   return (
-    <div>
-      {image && (
+    <Container>
+      <Header>
         <div>
-          <h2>{image.title}</h2>
-          {image.copyright && <h1>Autor: {image.copyright}</h1>}
-          <img src={image.url} alt={image.title}/>
-          <p>{image.explanation}</p>
+          <GiAtomicSlashes size={34} color='white' />
+          {image && (
+            <h2> - {image.title}</h2>
+          )}
         </div>
-      )}
-    </div>
+        <Link to="/searcher">
+          <FiChevronLeft size={16} />
+          Voltar
+        </Link>
+      </Header>
+      {image?.copyright && <h1>Author: {image.copyright}</h1>}
+      <Content>
+        {image && (
+          <div>
+            <div>
+              <a href={image.hdurl || image.url} target='__blank'>
+                <img src={image.url} alt={image.title}/>
+              </a>
+            </div>
+            <aside>
+              <p>{image.explanation}</p>
+            </aside>
+          </div>
+        )}
+      </Content>
+    </Container>
   )
 }

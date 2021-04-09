@@ -15,6 +15,7 @@ export const Container = styled.div`
   border-radius: 6px;
   border: 3px solid rgba(46,27,87,0.7);
   a {
+    height: 100%;
     position: relative;
     text-decoration: none;
   
@@ -42,6 +43,8 @@ export const Container = styled.div`
       img {
         height: 100%;
         max-height: 460px;
+        min-height: 460px;
+
         object-fit: contain;
         object-position: center;
       }
