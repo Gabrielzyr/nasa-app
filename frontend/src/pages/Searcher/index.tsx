@@ -38,7 +38,6 @@ export const Searcher: React.FC = () => {
         }
       });
 
-      console.log(response)
       if (!response) {
         throw new Error()
       };
@@ -55,11 +54,9 @@ export const Searcher: React.FC = () => {
     const onlyNumbers = /^[0-9\b]+$/;
 
     if (e.target.value === '' || onlyNumbers.test(e.target.value)) {
-      console.log('oi')
       if (e.target.value.length > 7) {
         let numberFormat = Number(e.target.value)
         setApiParam(format(numberFormat, 'yyyy-mm-dd'))
-        console.log(apiParam)
       }
     }
 
