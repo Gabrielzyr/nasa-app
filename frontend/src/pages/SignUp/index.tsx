@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
-import * as yup from 'yup';
+import * as Yup from 'yup';
 
 import Input from '../../components/Input';
 import { FormHandles } from '@unform/core';
@@ -24,9 +24,9 @@ const SignUp = () => {
   const handleFormSubmit = useCallback( 
     async (data: IFormData) => {
       try {
-        const schema = yup.object().shape({
-          email: yup.string().email('Email obrigatório').required('Email obrigatório'),
-          password: yup.string().required('Senha obrigatória')
+        const schema = Yup.object().shape({
+          email: Yup.string().email('Email obrigatório').required('Email obrigatório'),
+          password: Yup.string().required('Senha obrigatória')
         });
 
         await schema.validate(data, {

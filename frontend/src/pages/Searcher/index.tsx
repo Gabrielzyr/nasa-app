@@ -1,11 +1,14 @@
 import React, { FormEvent, useState } from 'react';
 import { nasaApi } from '../../services/api';
 import {format} from 'date-fns';
-// import DayPicker, { DayModifiers } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
+
 import {checkDateParam, MaskDateInput} from '../../lib/utils';
-import { Container } from './styles';
+import { Container, Header } from './styles';
 import { ImageContainer } from '../../components/ImageContainer';
+import { GiAtomicSlashes } from 'react-icons/gi';
+import { VscSignOut } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 
 interface INasaData {
   date: string;
@@ -21,6 +24,9 @@ export const Searcher: React.FC = () => {
   const [newDate, setNewDate] = useState('');
   const [newImage, setNewImage] = useState<INasaData>();
 
+  const { signOut } = useAuth();
+
+
   const handleImageSearch = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   
@@ -32,7 +38,6 @@ export const Searcher: React.FC = () => {
         }
       });
 
-      console.log(response)
       if (!response) {
         throw new Error()
       };
@@ -49,11 +54,9 @@ export const Searcher: React.FC = () => {
     const onlyNumbers = /^[0-9\b]+$/;
 
     if (e.target.value === '' || onlyNumbers.test(e.target.value)) {
-      console.log('oi')
       if (e.target.value.length > 7) {
         let numberFormat = Number(e.target.value)
         setApiParam(format(numberFormat, 'yyyy-mm-dd'))
-        console.log(apiParam)
       }
     }
 
@@ -61,6 +64,26 @@ export const Searcher: React.FC = () => {
 
   return (
     <Container>
+      <Header>
+        <div>
+          <GiAtomicSlashes size={30}/>
+
+          <div>
+            <Link to="searcher">Searcher</Link>
+            <Link to='favorites'>
+              Favorites
+            </Link>
+            <button 
+              type="button"
+              onClick={signOut}
+            >
+              Sign Out
+              <VscSignOut size={22}/>
+            </button>
+          </div>
+        </div>
+      </Header>
+
       <form onSubmit={handleImageSearch}>
         <h2>Welcome to apod's explorer</h2>
         <p>Type a date between 16/06/1995 and today and see what you find</p>

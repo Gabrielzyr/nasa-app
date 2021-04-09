@@ -68,3 +68,47 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const Header = styled.header`
+  width: 100vw;
+  height: 40px;
+
+  div {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      color: #f5f5f5;
+    }
+    
+    div {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      
+      a {
+        text-decoration: none;
+        color: #f5f5f5;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+      
+      button {
+        margin: 0 10px;
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+        font-weight: 400;
+        color: #f5f5f5;
+        font-size: 1rem;
+      }
+
+    }
+  }
+`;
