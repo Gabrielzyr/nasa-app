@@ -28,7 +28,6 @@ const AuthProvider: React.FC = ({children}) => {
   const [data, setData] = useState<IAuthState>(() => {
     const token = localStorage.getItem('@NasaApp:token');
     const user = localStorage.getItem('@NasaApp:user');
-    console.log(JSON.stringify(user));
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;

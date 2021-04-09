@@ -26,7 +26,7 @@ export const ImageContainer: React.FC<IImageProps> = ({
           <h1>{title}</h1>
         </div>
         <div onMouseEnter={() => {
-          setShow(true); console.log('oi')
+          setShow(true);
         }
         }>
           <img onMouseOver={() => setShow(true)} src={url} alt={title} />
