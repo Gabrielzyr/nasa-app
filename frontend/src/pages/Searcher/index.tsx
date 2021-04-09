@@ -1,8 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import { nasaApi } from '../../services/api';
 import {format} from 'date-fns';
-// import DayPicker, { DayModifiers } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
+
 import {checkDateParam, MaskDateInput} from '../../lib/utils';
 import { Container } from './styles';
 import { ImageContainer } from '../../components/ImageContainer';

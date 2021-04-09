@@ -5,5 +5,5 @@ export const Home: React.FC = () => {
     <div>
       <h2>Dashboard</h2>
     </div>
-  )
-}
+  );
+};
