@@ -4,7 +4,9 @@ import {format} from 'date-fns';
 // import DayPicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import {checkDateParam, MaskDateInput} from '../../lib/utils';
-import { Link } from 'react-router-dom';
+import { Container } from './styles';
+import { ImageContainer } from '../../components/ImageContainer';
+
 interface INasaData {
   date: string;
   title: string;
@@ -58,28 +60,35 @@ export const Searcher: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Procure uma imagem</h2>
+    <Container>
       <form onSubmit={handleImageSearch}>
-        <input
-          type='text'
-          value={newDate}
-          onChange={(e) => {
-            handleChange(e);
-            setNewDate(MaskDateInput(e.target.value))
-          }}
-          placeholder="YYYY-MM-DD"
-        />
+        <h2>Welcome to apod's explorer</h2>
+        <p>Type a date between 16/06/1995 and today and see what you find</p>
+
+        <div>
+          <input
+            type='text'
+            value={newDate}
+            onChange={(e) => {
+              handleChange(e);
+              setNewDate(MaskDateInput(e.target.value))
+            }}
+            placeholder="dd/mm/yyyy"
+          />
+        </div>
+
         <button type='submit'>Procurar</button>
       </form>
-      {newImage && (
-        <Link to={`/details/${newImage.date}`}>
-          <h1>{newImage?.title}</h1>
-          <img src={newImage?.url} alt={newImage?.title}/>
-        </Link>
 
+      {newImage && (
+        <ImageContainer 
+          date={newImage.date}
+          title={newImage.title}
+          url={newImage.url}
+        />
+      
       )}
-    </div>
+    </Container>
   )
 
 

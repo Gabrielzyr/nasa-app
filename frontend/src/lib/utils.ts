@@ -33,9 +33,10 @@ export const MaskDateInput = (value: string) => {
   if (value.length > 8) {
     value = value.slice(0, -1)
   }
-  value = value.replace(/(\d{4})(\d)/, "$1-$2")
+  
+  value = value.replace(/(\d{4})(\d)/, "$1/$2")
 
-  value = value.replace(/(\d{2})(\d)/, "$1-$2")
+  value = value.replace(/(\d{2})(\d)/, "$1/$2")
 
   return value;
 }
