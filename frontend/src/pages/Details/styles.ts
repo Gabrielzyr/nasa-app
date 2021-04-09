@@ -54,10 +54,9 @@ export const Content = styled.main`
 
   div {
     display: flex;
-    div {
-      display: flex;
-      flex-direction: column;
-      a {
+     
+     div.image-container {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -66,6 +65,20 @@ export const Content = styled.main`
         min-width: 500px;
         max-width: 560px;
         margin-right: 12px;
+        border-radius: 6px;
+        
+        img {
+          min-height: 100%;
+        }
+      }
+    
+    div {
+      display: flex;
+      flex-direction: column;
+      
+     
+      a {
+
       
       }
     }
@@ -82,4 +95,42 @@ export const Content = styled.main`
     }
   
   }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row !important;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 8px;
+  
+  a {
+    text-decoration: none;
+    margin-right: 10px;
+    color: #f5f5f5;
+    transition: color 200ms;
+
+    &:hover {
+      color: ${shade(0.2, '#f5f5f5' )};
+    }
+
+  }
+  
+  button {
+    color: #f5f5f5;
+    border: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      transition: color 200ms;
+      &:hover {
+        color: ${shade(0.2, '#f5f5f5')};
+      }
+
+    }
+  }
+
 `;
